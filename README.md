@@ -1,5 +1,7 @@
 # SmartTask — AI-Assisted Task Prioritizer
 
+[![CI](https://github.com/TEERAPAT-SUKKASEM/smarttask/actions/workflows/ci.yml/badge.svg)](https://github.com/TEERAPAT-SUKKASEM/smarttask/actions/workflows/ci.yml)
+
 > A practice project for the **SE Code Connect** competition (31 Jul – 2 Aug 2026, Mae Fah Luang University).
 > Built as a full-SDLC dry run: **SRS → Architecture → TDD → CI/CD → Deploy → Pitch.**
 
@@ -25,9 +27,18 @@ any other code. This is the standard way to build AI features that stay testable
 | -------------------------------------------------- | --------------------------------------------------------------- |
 | [docs/01_SRS.md](docs/01_SRS.md)                   | Software Requirements Specification (what we're building & why) |
 | [docs/02_ARCHITECTURE.md](docs/02_ARCHITECTURE.md) | Architecture diagram & design decisions                         |
+| [docs/03_PITCH.md](docs/03_PITCH.md)               | Final pitch script, live-demo commands & judge Q&A              |
+
+## Quick start
+
+```bash
+./mvnw test                                   # run all 8 tests
+./mvnw clean package                          # build the runnable jar
+java -jar target/smarttask-0.1.0-SNAPSHOT.jar # run the app
+```
 
 ## Dry-run progress
 
 - [x] **Phase 1 — Design & Architecture** (mirrors competition Day 1)
 - [x] **Phase 2 — TDD Development** (mirrors Day 2) — 8 tests, MVP runnable via `mvn exec:java`
-- [ ] **Phase 3 — CI/CD, Deploy & Pitch** (mirrors Day 3)
+- [x] **Phase 3 — CI/CD, Deploy & Pitch** (mirrors Day 3) — green CI, jar artifact, pitch guide
