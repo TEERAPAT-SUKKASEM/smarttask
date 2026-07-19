@@ -29,7 +29,7 @@ public class SmartTaskApp {
         service.addTask(new Task("Buy groceries",        today.plusDays(3), 1));
         service.addTask(new Task("Prepare pitch slides", today.plusDays(2), 4));
 
-        System.out.println("=== SmartTask — recommended order ===");
+        System.out.println("=== SmartTask - recommended order ===");
         List<Task> ordered = service.prioritizedTasks();
         int rank = 1;
         for (Task t : ordered) {

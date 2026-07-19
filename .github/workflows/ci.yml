@@ -1,0 +1,38 @@
+name: CI
+
+# When does this pipeline run? On every push and pull request to main.
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest   # a fresh Linux machine, provided free by GitHub
+
+    steps:
+      # 1. Get our code onto the machine.
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      # 2. Install Java 25.
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven          # cache downloaded libraries to speed up future runs
+
+      # 3. Build and run the whole test suite via the Maven Wrapper (no Maven install needed).
+      - name: Build and test
+        run: |
+          chmod +x mvnw
+          ./mvnw --batch-mode --no-transfer-progress clean verify
+
+      # 4. Save the built jar so it can be downloaded from the run's summary page.
+      - name: Upload the runnable jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: smarttask-jar
+          path: target/*.jar

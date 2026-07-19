@@ -45,6 +45,20 @@
                 <version>3.5.2</version>
             </plugin>
 
+            <!-- Builds a runnable jar: records the Main-Class so 'java -jar' knows where to start. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.codeconnect.smarttask.app.SmartTaskApp</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
             <!-- Lets us run the app with:  mvn exec:java  -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
